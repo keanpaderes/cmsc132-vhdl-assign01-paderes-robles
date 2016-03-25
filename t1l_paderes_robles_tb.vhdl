@@ -7,6 +7,7 @@ use IEEE.numeric_std.all;
 
 -- Test Bench has no ports
 entity t1l_paderes_robles_tb is
+	constant DELAY: time := 10 ns;
 end entity t1l_paderes_robles_tb;
 
 architecture t1l_paderes_robles_tb of t1l_paderes_robles_tb is
@@ -80,6 +81,8 @@ begin
 			report "alarm = " & std_logic'image(expected_alarm);
 			report "real alarm = " & std_logic'image(T_alarm);
 			
+			wait for DELAY;
+			
 			--assert(expected_alarm = T_alarm) 
 				--report "ERROR! Expected alarm " & std_logic'image(expected_alarm) 
 				--& " when Boggis: IN_BUZZER = " & std_logic'image(T_BoI) & " , OUT_BUZZER = " & std_logic'image(T_BoO) 
@@ -89,7 +92,9 @@ begin
 			if(expected_alarm /= T_alarm) then error_count := error_count + 1;
 			end if;
 		end loop;
-
+		
+		wait for DELAY;
+		
 		-- Summary of Test Bench
 		report "Done with test. There were "& integer'image(error_count) & " errors.";
 		wait; -- wait forever. This will finish the simulation
