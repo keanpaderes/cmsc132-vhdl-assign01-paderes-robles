@@ -83,11 +83,11 @@ begin
 			
 			wait for DELAY;
 			
-			--assert(expected_alarm = T_alarm) 
-				--report "ERROR! Expected alarm " & std_logic'image(expected_alarm) 
-				--& " when Boggis: IN_BUZZER = " & std_logic'image(T_BoI) & " , OUT_BUZZER = " & std_logic'image(T_BoO) 
-				--& " ; when Bunce: IN_BUZZER = " & std_logic'image(T_BuI) & " , OUT_BUZZER = " & std_logic'image(T_BuO)
-				--& " ; when Bean: IN_BUZZER = " & std_logic'image(T_BeI) & " , OUT_BUZZER = " & std_logic'image(T_BeO); 				
+			assert(expected_alarm = T_alarm) 
+				report "ERROR! Expected alarm " & std_logic'image(expected_alarm) 
+				& " when Boggis: IN_BUZZER = " & std_logic'image(T_BoI) & " , OUT_BUZZER = " & std_logic'image(T_BoO) 
+				& " ; when Bunce: IN_BUZZER = " & std_logic'image(T_BuI) & " , OUT_BUZZER = " & std_logic'image(T_BuO)
+				& " ; when Bean: IN_BUZZER = " & std_logic'image(T_BeI) & " , OUT_BUZZER = " & std_logic'image(T_BeO); 				
 			
 			if(expected_alarm /= T_alarm) then error_count := error_count + 1;
 			end if;
