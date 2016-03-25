@@ -1,4 +1,4 @@
---File Name: t1l-paderes-robles.vhdl
+--File Name: t1l_paderes_robles.vhdl
 --Program Description: Behavioral Design of a Farm Buzzer 
 --Author: Paderes, Irvin Kean Paulus T.
 -- 			 Robles, Paul Joshua H.
@@ -7,25 +7,21 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity farm_buzzer is
+entity t1l_paderes_robles is
 	port (
 		boggisIn, boggisOut, bunceIn, bunceOut, beanIn, beanOut: in std_logic;
 		alarm : out std_logic
 		);
-end entity farm_buzzer;
+end entity t1l_paderes_robles;
 
-architecture behavioral of farm_buzzer is 
+architecture behavioral of t1l_paderes_robles is 
 begin
 	process (boggisIn, boggisOut, bunceIn, bunceOut, beanIn, beanOut) is
 	variable orIn: std_logic := '0';
 	variable orOut: std_logic := '0'; 
 	begin
-		if ((boggisIn = '1') or (bunceIn = '1') or (beanIn = '1')) then
-			orIn := '1';
-		end if;
-		if ((boggisOut = '1') or (bunceOut = '1') or (beanOut = '1')) then
-			orOut := '1';
-		end if;
+		orIn := (boggisIn or bunceIn or beanIn);
+		orOut := (boggisOut or bunceOut or beanOut);
 		alarm <= orIn and orOut;
 	end process;
 end architecture behavioral;
