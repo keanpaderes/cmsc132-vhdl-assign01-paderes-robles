@@ -2,6 +2,7 @@
 --Program Description: Test Bench for the Farm Buzzer 
 --Author: Paderes, Irvin Kean Paulus T.
 -- 			 Robles, Paul Joshua H.
+
 library IEEE; use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
@@ -74,12 +75,6 @@ begin
 				else expected_alarm := '0';
 				end if;
 			end if;
-			
-		
-			
-			report "orIn = " & std_logic'image(expected_or_in) & " orOut = " & std_logic'image(expected_or_out);
-			report "alarm = " & std_logic'image(expected_alarm);
-			report "real alarm = " & std_logic'image(T_alarm);
 			
 			wait for DELAY;
 			
